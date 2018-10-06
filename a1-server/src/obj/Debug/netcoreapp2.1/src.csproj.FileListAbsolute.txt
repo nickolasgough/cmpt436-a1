@@ -1,0 +1,11 @@
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/bin/Debug/netcoreapp2.1/src.deps.json
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/bin/Debug/netcoreapp2.1/src.runtimeconfig.json
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/bin/Debug/netcoreapp2.1/src.runtimeconfig.dev.json
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/bin/Debug/netcoreapp2.1/src.dll
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/bin/Debug/netcoreapp2.1/src.pdb
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/obj/Debug/netcoreapp2.1/src.csprojAssemblyReference.cache
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/obj/Debug/netcoreapp2.1/src.csproj.CoreCompileInputs.cache
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/obj/Debug/netcoreapp2.1/src.AssemblyInfoInputs.cache
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/obj/Debug/netcoreapp2.1/src.AssemblyInfo.cs
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/obj/Debug/netcoreapp2.1/src.dll
+/Users/nickolas-gough/Desktop/cmpt436/assignments/a1/a1-server/src/obj/Debug/netcoreapp2.1/src.pdb
