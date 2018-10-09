@@ -159,6 +159,14 @@ public class Client {
                     this.errorln("Failed to refresh the messages");
                 }
                 break;
+            case "help":
+                this.println("create <room name>");
+                this.println("join <room name>");
+                this.println("list");
+                this.println("leave");
+                this.println("send <message>");
+                this.println("refresh");
+                break;
             default:
                 this.errorln("error: given command is unknown");
                 this.println("invoke \"help\" for a list of commands");
