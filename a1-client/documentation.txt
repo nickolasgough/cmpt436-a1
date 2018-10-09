@@ -1,0 +1,34 @@
+Nickolas Gough, nvg081, 11181823
+
+
+The following document describes the usage and testing of a simple chat room
+server and client.
+
+
+The client is a Java program and the server is a C# program. All data stored in
+the server is volatile as no database is used.
+
+
+The client program can be run by executing the following commands in the src
+directory within the a1-client directory:
+
+Compilation:
+    javac client/Client.java service/Service.java main/Main.java
+
+Execution:
+    java main.Main
+
+
+The server program can be run by executing the following set of commands in the
+src directory within the a1-server directory:
+
+Execution:
+    dotnet run
+
+
+Finally, the client and program was tested by running each program and then
+running through the various states of the program. Each of the commands were
+tested when the user was not in a chat room, when the user was in a chat room,
+when there were other users in the same chat room, and when a chat room was
+full. Similarly, each of the commands were tested when there were and were not
+messages within the current chat room and other existing chat rooms.

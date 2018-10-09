@@ -7,6 +7,9 @@ using server;
 
 namespace program
 {
+    /*
+    Simple program class the run the server.
+    */
     class Program
     {
         static void Main(string[] args)

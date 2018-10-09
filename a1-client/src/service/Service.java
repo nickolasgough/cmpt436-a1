@@ -6,8 +6,13 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/*
+Service class for establish connections
+Commands are sent to the server to be handled
+ */
 public class Service {
 
+    /* Store all necessary data */
     private Socket socket;
     private PrintStream printStream;
     private BufferedReader bufferedReader;
@@ -15,6 +20,7 @@ public class Service {
     private String userId;
     private String room;
 
+    /* Instantiate the service and initialize the server connection */
     public Service() {
         this.userId = null;
 
@@ -27,10 +33,6 @@ public class Service {
             System.err.println("error: socket - failed to establish a connection with the server");
         }
 
-        while (!this.socket.isConnected()) {
-            // Wait for the connection to be established
-        }
-
         try {
             this.bufferedReader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
             this.printStream = new PrintStream(this.socket.getOutputStream());
@@ -39,10 +41,12 @@ public class Service {
         }
     }
 
+    /* Return the user's current room */
     public String currentRoom() {
         return this.room;
     }
 
+    /* Create a new user on the chat room server */
     public boolean CreateUser(String user) {
         this.printStream.println("user");
         this.printStream.println(user);
@@ -61,6 +65,7 @@ public class Service {
         return false;
     }
 
+    /* Create a new chat room on the chat room server */
     public boolean CreateRoom(String room) {
         this.printStream.println("create");
         this.printStream.println(room);
@@ -78,6 +83,7 @@ public class Service {
         return false;
     }
 
+    /* Join a chat room on the chat room server and retrieve all existing messages */
     public ArrayList<String> JoinRoom(String room) {
         this.printStream.println("join");
         this.printStream.println(room);
@@ -113,6 +119,7 @@ public class Service {
         return null;
     }
 
+    /* Leave the user's current chat room on the chat room server */
     public boolean LeaveRoom() {
         this.printStream.println("leave");
         this.printStream.println(this.userId);
@@ -132,6 +139,7 @@ public class Service {
         return false;
     }
 
+    /* List all existing chat rooms on the chat room server */
     public ArrayList<String> ListRooms() {
         this.printStream.println("list");
 
@@ -162,6 +170,7 @@ public class Service {
         return null;
     }
 
+    /* Send a message to the user's current chat room on the chat room server */
     public boolean SendMessage(String message) {
         this.printStream.println("send");
         this.printStream.println(this.userId);
@@ -178,6 +187,7 @@ public class Service {
         return false;
     }
 
+    /* List all the existing messages in the user's current chat room */
     public ArrayList<String> RefreshMessages() {
         this.printStream.println("refresh");
         this.printStream.println(this.userId);
@@ -211,6 +221,7 @@ public class Service {
         return null;
     }
 
+    /* End the current connection with the chat room server */
     public void EndConnection() {
         try {
             this.socket.close();

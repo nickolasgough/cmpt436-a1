@@ -6,18 +6,26 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+Client class to handle user interactions on the terminal
+*/
 public class Client {
 
+    /* Store the service that will make the requests */
     private Service service;
 
+    /* Create the client and instantiate the service */
     public Client() {
         this.service = new Service();
     }
 
+    /* Run the client program */
     public void Run() {
+        /* Initial setup */
         String input;
         Scanner scanner = new Scanner(System.in);
 
+        /* Register the user */
         this.print("Please enter your username: ");
         input = scanner.nextLine();
         while (input.isEmpty()) {
@@ -40,6 +48,7 @@ public class Client {
         }
         this.println("User successfully created");
 
+        /* Continuosly accept commands from the user */
         this.print(this.getPrompt());
         input = scanner.nextLine();
         while (!input.equals("quit")) {
@@ -48,10 +57,12 @@ public class Client {
             input = scanner.nextLine();
         }
 
+        /* Close the connection and cleanup */
         this.service.LeaveRoom();
         this.service.EndConnection();
     }
 
+    /* Compute the appropriate display prompt */
     private String getPrompt() {
         String prompt = "What would you like to do? ";
         String room = this.service.currentRoom();
@@ -62,9 +73,11 @@ public class Client {
         return prompt;
     }
 
+    /* Parse and handle the user's input */
     private void handleInput(String input) {
         Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes()));
 
+        /* Retrieve the command */
         String command;
         if (scanner.hasNext()) {
             command = scanner.next().trim();
@@ -72,6 +85,7 @@ public class Client {
             return;
         }
 
+        /* React to the command, collecting more input when necessary */
         String argument;
         boolean success;
         ArrayList<String> results;
@@ -151,14 +165,17 @@ public class Client {
         }
     }
 
+    /* Print a message without a newline */
     private void print(String message) {
         System.out.print(message);
     }
 
+    /* Print a new message with a newline */
     private void println(String message) {
         System.out.println(message);
     }
 
+    /* Print an error with a newline */
     private void errorln(String error) {
         System.err.println(error);
     }

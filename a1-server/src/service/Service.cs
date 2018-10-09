@@ -2,11 +2,17 @@ using System.Collections.Generic;
 
 namespace service
 {
+    /*
+    Service class for storing and manipulating data.
+    Users, chat rooms, and messages are all stored here.
+    */
     public class Service
     {
 
+        /* Users and their current chat room */
         private Dictionary<string, string> users;
 
+        /* Structure for storing chat room data */
         private struct Room {
             public int count;
             public List<string> messages;
@@ -17,13 +23,16 @@ namespace service
             }
         }
 
+        /* Rooms and their current messages */
         private Dictionary<string, Room> rooms;
 
+        /* Create a service and instantiate the data */
         public Service() {
             this.users = new Dictionary<string, string>();
             this.rooms = new Dictionary<string, Room>();
         }
 
+        /* Create the given user */
         public bool CreateUser(string user) {
             string room = null;
 
@@ -35,6 +44,7 @@ namespace service
             return false;
         }
 
+        /* Delete the give user */
         public bool DeleteUser(string user) {
             string room = null;
 
@@ -47,6 +57,7 @@ namespace service
             return true;
         }
 
+        /* Create the given room */
         public bool CreateRoom(string room) {
             Room tempR;
 
@@ -58,6 +69,7 @@ namespace service
             return true;
         }
 
+        /* The given user tries to join the given chat room */
         public List<string> JoinRoom(string room, string user) {
             string tempR = null;
             Room r;
@@ -83,6 +95,7 @@ namespace service
             return r.messages;
         }
 
+        /* The given user tries to leave their current chat room */
         public bool LeaveRoom(string user) {
             string room = null;
             Room r;
@@ -108,6 +121,7 @@ namespace service
             return true;
         }
 
+        /* List all existing chat rooms */
         public List<string> ListRooms() {
             int count = this.rooms.Keys.Count;
             List<string> rooms = new List<string>();
@@ -121,6 +135,7 @@ namespace service
             return rooms;
         }
 
+        /* The given user tries to send a message to their current chat room */
         public bool SendMessage(string user, string message) {
             string room = null;
             Room r;
@@ -142,6 +157,7 @@ namespace service
             return true;
         }
 
+        /* List all the messages within the user's current chat room */
         public List<string> RefreshMessages(string user) {
             string room = null;
             Room r;

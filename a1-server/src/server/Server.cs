@@ -10,8 +10,13 @@ using service;
 
 namespace server
 {
+    /*
+    Server class for running a chat room server.
+    All connections established and pared here.
+    */
     public class Server
     {
+        /* Setup the server to begin listening for connections */
         public void Run()
         {
             IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
@@ -22,6 +27,7 @@ namespace server
 
             Service service = new Service();
 
+            /* Continuously spin off threads to handle incoming connections */
             while (true) {
                 Console.WriteLine("Waiting for a socket connection...");
                 TcpClient client = server.AcceptTcpClient();
@@ -50,6 +56,7 @@ namespace server
             string argument2 = null;
             List<string> results = null;
 
+            /* Register the user that made the connection */
             Console.WriteLine("Waiting for user registration...");
             command = reader.ReadLine();
             user = reader.ReadLine();
@@ -69,6 +76,7 @@ namespace server
                 writer.Flush();
             }
 
+            /* Continously accept and parse incoming commands from the user */
             try {
                 while (client.Connected) {
                     Console.WriteLine("Waiting for a command...");
@@ -194,6 +202,7 @@ namespace server
                     }
                 }
             } catch (Exception e) {
+                /* Cleanup after the connection has been closed */
                 Console.WriteLine("Socket connection to client lost...");
                 Console.WriteLine(e.Message);
 
