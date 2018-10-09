@@ -30,5 +30,5 @@ Finally, the client and program was tested by running each program and then
 running through the various states of the program. Each of the commands were
 tested when the user was not in a chat room, when the user was in a chat room,
 when there were other users in the same chat room, and when a chat room was
-full. Similarly, each of the commands were tested when there were and were not
+lfull. Similarly, each of the commands were tested when there were and were not
 messages within the current chat room and other existing chat rooms.
