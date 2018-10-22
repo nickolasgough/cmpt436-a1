@@ -66,7 +66,7 @@ namespace service
                 return true;
             }
 
-            return true;
+            return false;
         }
 
         /* The given user tries to join the given chat room */
